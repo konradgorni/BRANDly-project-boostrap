@@ -3,7 +3,7 @@ html {
 }
 
 section {
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 .header {
@@ -39,6 +39,8 @@ section {
 ////////////////////////////latestProducts
 .latestProducts {
   text-align: center;
+  overflow-x: hidden;
+
 
   &__decoration {
     width: 150px;
@@ -64,12 +66,17 @@ section {
   }
 }
 
+#blog {
+  overflow-x: hidden;
+}
+
 ////////////////////////////newsletter
 .contact {
   background-image: url("../public/images/newsletterbg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
 
 
 
@@ -133,7 +140,7 @@ figure {
 }
 
 .effect-ming-big {
-  width: 100vw;
+  width: 100%;
 
 
   img {
@@ -143,6 +150,7 @@ figure {
 
   figcaption {
     height: 100%;
+    width: 100%;
   }
 }
 
@@ -186,6 +194,7 @@ figure.effect-ming img {
   opacity: 0.35;
   -webkit-transition: opacity 0.35s;
   transition: opacity 0.35s;
+  width: 100%;
 }
 
 figure.effect-ming figcaption::before {

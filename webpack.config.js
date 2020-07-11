@@ -1,7 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
@@ -16,19 +18,17 @@ const config = {
   entry: './src/js/index.js',
   output: {
     filename: 'js/[name].[hash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
-        use: [
-          {
+        use: [{
             loader: MiniCssExtractPlugin.loader,
             options: {
               hmr: IS_DEV,
@@ -40,8 +40,7 @@ const config = {
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          {
+        use: [{
             loader: 'url-loader',
             options: {
               limit: 8192,
@@ -80,12 +79,10 @@ const config = {
       jQuery: 'jquery',
       'windows.jQuery': 'jquery',
     }),
-    new CopyWebpackPlugin([
-      {
-        from: './src/public',
-        to: 'public',
-      },
-    ]),
+    new CopyWebpackPlugin([{
+      from: './src/public',
+      to: 'public',
+    }, ]),
     new MiniCssExtractPlugin({
       filename: IS_DEV ? 'css/[name].css' : 'css/[name].[contenthash].css',
       chunkFilename: 'css/[id].css',
